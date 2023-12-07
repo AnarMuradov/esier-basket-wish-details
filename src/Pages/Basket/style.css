@@ -1,0 +1,12 @@
+.basketPage{
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.count button{
+    width: 80px;
+    height: 20px;
+}
