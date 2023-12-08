@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext } from "react";
 import useLocal from "../Hooks/useLocal";
 
 export const BasketContext = createContext();
@@ -34,9 +34,12 @@ function BasketProvider({ children }) {
 
     setBasket(basket.filter(x=>x.id !== item.id))
   }
+  function getTotal(){
+    return basket.reduce((prev,x)=>prev +x.price*x.count,0).toFixed(2)
+  }
 
   return (
-    <BasketContext.Provider value={{ basket, setBasket, addBasket,decrease,increase,removeItem }}>
+    <BasketContext.Provider value={{ basket, setBasket, addBasket,decrease,increase,removeItem,getTotal }}>
       {children}
     </BasketContext.Provider>
   );
